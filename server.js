@@ -18,9 +18,10 @@ app.get('/', (req, res) => {
 });
 
 
-app.post("/api/users", function(res, req)
+app.post("/api/users", function(req, res)
 {
   console.log(req.body);
+  res.json({user: req.body});
 })
 
 
