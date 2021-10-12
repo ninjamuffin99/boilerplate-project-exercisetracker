@@ -22,7 +22,7 @@ const excerciseSchema = new Schema({
   lolID: String,
   description: String, 
   duration: Number, 
-  date: String
+  date: Date
 })
 
 
@@ -94,6 +94,9 @@ app.get('/api/users/:_id/logs', async function (req, res)
 
     funnyExercise.exec(function (err, exList)
     {
+
+
+      exList.forEach((element, ind) => {exList[ind] = new Date(element).toDateString()});
 
       var logJson = 
       {
