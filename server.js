@@ -41,8 +41,6 @@ app.get('/api/users', async function(req, res)
 
     res.send(users);
   });
-
-  
 });
 
 
@@ -58,6 +56,27 @@ app.post("/api/users", function(req, res)
 
     res.json(jsonShit);
   });
+
+  
+});
+
+app.post('/api/users/:_id/exercises', async function(req, res)
+{
+  await User.find({_id: req.params._id}, function (err, user)
+  {
+    var jsonShit = 
+    {
+      username: user.username, 
+      description: req.body.description, 
+      duration: req.body.duration,
+      date: req.body.date,
+      _id: req.params._id
+    };
+
+    res.json(jsonShit);
+  });
+
+  
 
   
 });
