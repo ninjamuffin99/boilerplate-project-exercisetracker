@@ -65,10 +65,10 @@ app.post('/api/users/:_id/exercises', async function(req, res)
   await User.findOne({_id: req.params._id}, function (err, user)
   {
 
-    var funnyDate = req.body.date;
+    var funnyDate = new Date(req.body.date);
 
     if (!funnyDate)
-      funnyDate = Date.now();
+      funnyDate = new Date(Date.now());
 
     var jsonShit = 
     {
