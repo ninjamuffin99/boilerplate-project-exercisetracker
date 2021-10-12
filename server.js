@@ -33,9 +33,16 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html')
 });
 
-app.get('/api/users', function(req, res)
+app.get('/api/users', async function(req, res)
 {
-  res.send(['swag', 'also swagged']);
+  await User.find({}, function (err, users)
+  {
+    if (err) return console.log(err);
+
+    res.send(users);
+  });
+
+  
 });
 
 
