@@ -96,7 +96,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
     {
 
 
-      exList.forEach((element, ind) => {exList[ind].date = new Date()});
+      exList.forEach((element, ind) => {exList[ind].date = new Date().toDateString()});
 
       var logJson = 
       {
