@@ -96,14 +96,19 @@ app.get('/api/users/:_id/logs', async function (req, res)
     {
 
 
-      exList.forEach((element, ind) => {exList[ind].date = new Date(element.date).getDay()});
+      
+      var funnyArray = exList.copy();
+
+      funnyArray.forEach((element, ind) => {funnyArray[ind].date = "swagged"});
+
+
 
       var logJson = 
       {
           username: user.username,
           _id: req.params._id,
           count: exList.length,
-          log: exList
+          log: funnyArray
       }; // create log object
 
 
