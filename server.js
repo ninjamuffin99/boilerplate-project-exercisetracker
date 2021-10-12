@@ -73,6 +73,8 @@ app.post('/api/users/:_id/exercises', async function(req, res)
       _id: req.params._id
     };
 
+    console.log(user);
+
     res.json(jsonShit);
   });
 
