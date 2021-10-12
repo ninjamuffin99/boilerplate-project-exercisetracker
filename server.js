@@ -62,7 +62,7 @@ app.post("/api/users", function(req, res)
 
 app.post('/api/users/:_id/exercises', async function(req, res)
 {
-  await User.find({_id: req.params._id}, function (err, user)
+  await User.findOne({_id: req.params._id}, function (err, user)
   {
     var jsonShit = 
     {
