@@ -79,7 +79,17 @@ app.get('/api/users/:_id/logs', async function (req, res)
     
     await Exercise.find({lolID: req.params._id}, function (err, exList)
     {
-      res.send(exList);
+
+      var logJson = 
+      {
+          username: user.username,
+          _id: req.params._id,
+          count: exList.length,
+          log: exList
+      }; // create log object
+
+
+      res.send(logJson);
     });
 
   });
