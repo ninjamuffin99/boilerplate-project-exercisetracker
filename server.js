@@ -22,7 +22,7 @@ const excerciseSchema = new Schema({
   lolID: String,
   description: String, 
   duration: Number, 
-  date: String
+  date: Date
 })
 
 
