@@ -64,23 +64,25 @@ app.post('/api/users/:_id/exercises', async function(req, res)
 {
   await User.findOne({_id: req.params._id}, function (err, user)
   {
+
+    var funnyDate = req.body.date;
+
+    if (!funnyDate)
+      funnyDate = Date.now();
+
     var jsonShit = 
     {
       username: user.username, 
       description: req.body.description, 
       duration: req.body.duration,
-      date: req.body.date,
+      date: funnyDate,
       _id: req.params._id
     };
 
-    console.log(user);
+    // console.log(user);
 
     res.json(jsonShit);
   });
-
-  
-
-  
 });
 
 
