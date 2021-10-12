@@ -67,7 +67,7 @@ app.post('/api/users/:_id/exercises', async function(req, res)
 
     var funnyDate = new Date(req.body.date).toString();
 
-    if (!funnyDate)
+    if (funnyDate == "Invalid Date")
       funnyDate = Date();
 
     var jsonShit = 
