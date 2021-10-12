@@ -1,8 +1,13 @@
+
+import {v4 as uuidv4} from 'uuid';
+
 const express = require('express')
 const app = express()
 const cors = require('cors')
 
 const bodyParser = require('body-parser');
+
+
 
 require('dotenv').config()
 
@@ -21,7 +26,7 @@ app.get('/', (req, res) => {
 app.post("/api/users", function(req, res)
 {
   console.log(req.body);
-  res.json({user: req.body});
+  res.json({username: req.body.username,  _id: uuidv4()});
 })
 
 
