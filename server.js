@@ -19,7 +19,7 @@ const userSchema = new Schema({
 });
 
 const excerciseSchema = new Schema({
-  _id: String,
+  lolID: String,
   description: String, 
   duration: Number, 
   date: String
@@ -105,7 +105,7 @@ app.post('/api/users/:_id/exercises', async function(req, res)
     };
 
 
-    Exercise.create({_id: req.params._id, description: jsonShit.description, duration: jsonShit.duration, date: jsonShit.date});
+    Exercise.create({lolID: req.params._id, description: jsonShit.description, duration: jsonShit.duration, date: jsonShit.date});
 
     // log
 
