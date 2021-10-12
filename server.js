@@ -68,7 +68,7 @@ app.post('/api/users/:_id/exercises', async function(req, res)
     var funnyDate = new Date(req.body.date);
 
     if (!funnyDate)
-      funnyDate = new Date(Date.now());
+      funnyDate = Date();
 
     var jsonShit = 
     {
