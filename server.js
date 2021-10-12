@@ -79,14 +79,19 @@ app.get('/api/users/:_id/logs', async function (req, res)
 
   
     var limiter = parseInt(req.query.limit);
-
-    
     
     var funnyExercise = Exercise.find({lolID: req.params._id});
 
     if (limiter)
       funnyExercise.limit(limiter);
-  
+    
+    
+
+    var dateMin = req.query.from;
+
+    if (dateMin)
+      funnyExercise.select({date: {$gte: dateMin}});
+
     funnyExercise.exec(function (err, exList)
     {
 
