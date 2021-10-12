@@ -1,5 +1,5 @@
 
-// import {v4 as uuidv4} from 'uuid';
+const {v4: uuidv4} = require('uuid');
 
 const express = require('express')
 const app = express()
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 app.post("/api/users", function(req, res)
 {
   console.log(req.body);
-  // res.json({username: req.body.username,  _id: uuidv4()});
+  res.json({username: req.body.username,  _id: uuidv4()});
 })
 
 
