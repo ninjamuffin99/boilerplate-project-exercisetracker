@@ -80,10 +80,14 @@ app.get('/api/users/:_id/logs', async function (req, res)
   
     var limiter = parseInt(req.query.limit);
 
-    if (limiter)
-      console.log("LImit stuff! " + limiter);
     
-    await Exercise.find({lolID: req.params._id}, function (err, exList)
+    
+    var funnyExercise = await Exercise.find({lolID: req.params._id});
+
+    if (limiter)
+      funnyExercise.limit(limiter);
+  
+    funnyExercise.exec(function (err, exList)
     {
 
       var logJson = 
@@ -96,7 +100,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
 
 
       res.send(logJson);
-    });
+    })
 
   });
 });
