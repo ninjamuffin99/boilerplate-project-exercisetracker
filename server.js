@@ -44,7 +44,7 @@ app.get('/api/users', async function(req, res)
 
     var jsonShit = {username: users.username, _id: users.id};
 
-    res.send(jsonShit);
+    res.send(users);
   });
 });
 
