@@ -49,8 +49,6 @@ app.get('/api/users', async function(req, res)
   {
     if (err) return console.log(err);
 
-    var jsonShit = {username: users.username, _id: users.id};
-
     res.send(users);
   });
 });
@@ -107,7 +105,7 @@ app.post('/api/users/:_id/exercises', async function(req, res)
     };
 
 
-    Exercise.create({_id: req.params.id, description: jsonShit.description, duration: jsonShit.duration, date: jsonShit.date});
+    Exercise.create({_id: req.params._id, description: jsonShit.description, duration: jsonShit.duration, date: jsonShit.date});
 
     // log
 
