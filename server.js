@@ -15,13 +15,20 @@ const {Schema} = mongoose;
 
 const userSchema = new Schema({
   username: String,
-  _id: String,
-  log: Array
+  _id: String
 });
+
+const excerciseSchema = new Schema({
+  _id: String,
+  description: String, 
+  duration: Number, 
+  date: String
+})
+
 
 
 let User = mongoose.model("User", userSchema);
-
+let Exercise = mongoose.model("Exercise", excerciseSchema);
 
 require('dotenv').config()
 
@@ -65,6 +72,21 @@ app.post("/api/users", function(req, res)
   
 });
 
+app.get('/api/users/:_id/logs', async function (req, res)
+{
+  await User.findOne({_id: req.params._id}, function (err, user)
+  {
+    if (err) return console.log(err);
+
+    
+    await Exercise.find({_id: req.params._id}, function (err, exList)
+    {
+      res.send(exList);
+    });
+
+  });
+});
+
 app.post('/api/users/:_id/exercises', async function(req, res)
 {
   await User.findOne({_id: req.params._id}, function (err, user)
@@ -83,6 +105,9 @@ app.post('/api/users/:_id/exercises', async function(req, res)
       date: new Date(funnyDate).toDateString(),
       _id: req.params._id
     };
+
+
+    Exercise.create({_id: req.params.id, description: jsonShit.description, duration: jsonShit.duration, date: jsonShit.date});
 
     // log
 
