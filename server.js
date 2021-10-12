@@ -15,10 +15,13 @@ const {Schema} = mongoose;
 
 const userSchema = new Schema({
   username: String,
-  _id: String
+  _id: String,
+  log: Array
 });
 
+
 let User = mongoose.model("User", userSchema);
+
 
 require('dotenv').config()
 
@@ -39,7 +42,9 @@ app.get('/api/users', async function(req, res)
   {
     if (err) return console.log(err);
 
-    res.send(users);
+    var jsonShit = {username: users.username, _id: users.id};
+
+    res.send(jsonShit);
   });
 });
 
@@ -78,6 +83,8 @@ app.post('/api/users/:_id/exercises', async function(req, res)
       date: new Date(funnyDate).toDateString(),
       _id: req.params._id
     };
+
+    // log
 
     // console.log(user);
 
