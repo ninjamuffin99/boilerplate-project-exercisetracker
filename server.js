@@ -77,7 +77,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
     if (err) return console.log(err);
 
     
-    await Exercise.find({_id: req.params._id}, function (err, exList)
+    await Exercise.find({lolID: req.params._id}, function (err, exList)
     {
       res.send(exList);
     });
