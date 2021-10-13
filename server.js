@@ -23,7 +23,7 @@ const excerciseSchema = new Schema({
   description: String, 
   duration: Number, 
   date: String,
-  timestampDate: Number
+  timestamp: Number
 })
 
 
@@ -96,17 +96,17 @@ app.get('/api/users/:_id/logs', async function (req, res)
       console.log(dateMin);
       console.log(Math.floor(new Date(dateMin)));
 
-      funnyExercise.find({timestampDate: {$gte: Math.floor(new Date(dateMin))}});
+      funnyExercise.find({timestamp: {$gte: Math.floor(new Date(dateMin))}});
     }
 
     var dateMax = req.query.to;
 
     if (dateMax)
     {
-      funnyExercise.find({timestampDate: {$lte: Math.floor(new Date(dateMax))}});
+      funnyExercise.find({timestamp: {$lte: Math.floor(new Date(dateMax))}});
     }
     
-    funnyExercise.select({timestampDate: 0, lolID: 0, _id: 0, __v: 0});
+    funnyExercise.select({timestampe: 0, lolID: 0, _id: 0, __v: 0});
 
     funnyExercise.exec(function (err, exList)
     {
@@ -153,7 +153,7 @@ app.post('/api/users/:_id/exercises', async function(req, res)
     };
 
 
-    Exercise.create({lolID: req.params._id, description: jsonShit.description, duration: jsonShit.duration, date: jsonShit.date, timestampDate: Math.floor(new Date(funnyDate))});
+    Exercise.create({lolID: req.params._id, description: jsonShit.description, duration: jsonShit.duration, date: jsonShit.date, timestamp: Math.floor(new Date(funnyDate))});
 
     // log
 
