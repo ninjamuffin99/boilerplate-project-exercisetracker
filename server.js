@@ -74,8 +74,6 @@ app.post("/api/users", function(req, res)
 app.get('/api/users/:_id/logs', async function (req, res)
 {
 
-  Exercise.deleteMany({});
-
   await User.findOne({_id: req.params._id}, async function (err, user)
   {
     if (err) return console.log(err);
@@ -108,7 +106,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
       funnyExercise.find({timestampDate: {$lte: Math.floor(new Date(dateMax))}});
     }
     
-    funnyExercise.select({timestampDate: 0});
+    funnyExercise.select({timestampDate: 0, lolID: 0, _id: 0, _v: 0});
 
     funnyExercise.exec(function (err, exList)
     {
