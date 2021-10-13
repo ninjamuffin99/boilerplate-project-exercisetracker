@@ -115,7 +115,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
       {
         exList[ind].date = new Date(exList[ind].date).toDateString();
 
-        console.log(exList[ind].date);
+        console.log("DATE BULLSHIT: " + exList[ind].date);
       });
 
       var logJson = 
