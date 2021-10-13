@@ -120,7 +120,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
       }; // create log object
 
 
-      res.json(logJson);
+      res.send(logJson);
     });
 
   });
