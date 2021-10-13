@@ -91,7 +91,14 @@ app.get('/api/users/:_id/logs', async function (req, res)
     var dateMin = req.params.from;
 
     if (dateMin)
+    {
+      console.log("has date min!");
+      console.log(dateMin);
+      console.log(Math.floor(new Date(dateMin)));
+
       funnyExercise.find({timestampDate: {$gte: Math.floor(new Date(dateMin))}});
+    }
+      
 
     funnyExercise.exec(function (err, exList)
     {
