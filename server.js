@@ -80,17 +80,16 @@ app.get('/api/users/:_id/logs', async function (req, res)
   
     var limiter = parseInt(req.query.limit);
     
-    var funnyExercise = Exercise.find({lolID: req.params._id});
+    var funnyExercise = Exercise.find({lolID: req.params._id, date: {$gte: req.params.from}});
 
     if (limiter)
       funnyExercise.limit(limiter);
     
     
 
-    var dateMin = req.query.from;
+    var dateMin = ;
 
-    if (dateMin)
-      funnyExercise.find({date: {$gte: dateMin}});
+    funnyExercise = funnyExercise.find({date: {$gte: dateMin}});
 
     funnyExercise.exec(function (err, exList)
     {
@@ -107,7 +106,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
       logJson.log.forEach((el, ind) => {console.log(logJson.log[ind])});
 
 
-      res.send(logJson);
+      res.sendJson(logJson);
     })
 
   });
