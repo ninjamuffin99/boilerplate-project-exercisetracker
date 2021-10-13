@@ -98,7 +98,15 @@ app.get('/api/users/:_id/logs', async function (req, res)
 
       funnyExercise.find({timestampDate: {$gte: Math.floor(new Date(dateMin))}});
     }
-      
+
+    var dateMax = req.query.to;
+
+    if (dateMax)
+    {
+      funnyExercise.find({timestampDate: {$lte: Math.floor(new Date(dateMax))}});
+    }
+    
+    funnyExercise.select({timestampDate: 0});
 
     funnyExercise.exec(function (err, exList)
     {
