@@ -72,10 +72,16 @@ app.post("/api/users", function(req, res)
 
 app.get('/api/users/:_id/logs', async function (req, res)
 {
+
   await User.findOne({_id: req.params._id}, async function (err, user)
   {
     if (err) return console.log(err);
 
+  
+    var limiter = parseInt(req.query.limit);
+
+    if (limiter)
+      console.log("LImit stuff! " + limiter);
     
     await Exercise.find({lolID: req.params._id}, function (err, exList)
     {
