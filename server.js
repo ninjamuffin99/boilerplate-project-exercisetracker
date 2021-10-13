@@ -94,15 +94,8 @@ app.get('/api/users/:_id/logs', async function (req, res)
 
     funnyExercise.exec(function (err, exList)
     {
-
-
-      
       var funnyArray = exList;
-
-      funnyArray.forEach((element, ind) => {funnyArray[ind].date = "swagged"});
-
-
-
+      
       var logJson = 
       {
           username: user.username,
@@ -110,6 +103,8 @@ app.get('/api/users/:_id/logs', async function (req, res)
           count: exList.length,
           log: funnyArray
       }; // create log object
+
+      logJson.log.forEach((el, ind) => {logJson.log[ind] = "sad lol!"});
 
 
       res.send(logJson);
