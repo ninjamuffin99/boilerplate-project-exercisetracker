@@ -106,7 +106,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
       funnyExercise.find({timestampDate: {$lte: Math.floor(new Date(dateMax))}});
     }
     
-    funnyExercise.select({timestampDate: 0, lolID: 0, _id: 0, _v: 0});
+    funnyExercise.select({timestampDate: 0, lolID: 0, _id: 0, __v: 0});
 
     funnyExercise.exec(function (err, exList)
     {
