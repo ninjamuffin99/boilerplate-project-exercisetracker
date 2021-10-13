@@ -106,7 +106,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
       logJson.log.forEach((el, ind) => {console.log(logJson.log[ind])});
 
 
-      res.sendJson(logJson);
+      res.json(logJson);
     })
 
   });
