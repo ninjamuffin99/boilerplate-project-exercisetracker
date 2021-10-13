@@ -87,9 +87,9 @@ app.get('/api/users/:_id/logs', async function (req, res)
     
     
 
-    var dateMin = ;
+    // var dateMin = ;
 
-    funnyExercise = funnyExercise.find({date: {$gte: dateMin}});
+    // funnyExercise = funnyExercise.find({date: {$gte: dateMin}});
 
     funnyExercise.exec(function (err, exList)
     {
