@@ -134,7 +134,7 @@ app.post('/api/users/:_id/exercises', async function(req, res)
     };
 
 
-    Exercise.create({lolID: req.params._id, description: jsonShit.description, duration: jsonShit.duration, date: jsonShit.date});
+    Exercise.create({lolID: req.params._id, description: jsonShit.description, duration: jsonShit.duration, date: jsonShit.date, timestampDate: jsonShit.timestampDate});
 
     // log
 
