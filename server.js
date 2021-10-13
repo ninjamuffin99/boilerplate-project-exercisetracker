@@ -113,7 +113,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
       
       exList.forEach((el, ind) => 
       {
-        exList[ind].date = "swag";
+        exList[ind].date = new Date(exList[ind].date).toDateString();
       });
 
       var logJson = 
