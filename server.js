@@ -81,7 +81,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
   
     var limiter = parseInt(req.query.limit);
 
-    var funnyExercise = Exercise.find({lolID: req.params._id});
+    var funnyExercise = await Exercise.find({lolID: req.params._id});
 
     if (limiter)
       funnyExercise.limit(limiter);
