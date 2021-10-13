@@ -110,7 +110,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
 
     funnyExercise.exec(function (err, exList)
     {
-      
+      console.log("INSERT DATE BULLSHIT -----");
       exList.forEach((el, ind) => 
       {
         exList[ind].date = new Date(exList[ind].date).toDateString();
