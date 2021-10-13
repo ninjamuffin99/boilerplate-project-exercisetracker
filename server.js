@@ -129,7 +129,7 @@ app.post('/api/users/:_id/exercises', async function(req, res)
       description: req.body.description, 
       duration: parseInt(req.body.duration),
       date: new Date(funnyDate).toDateString(),
-      timestampDate: Math.floor(funnyDate),
+      timestampDate: Math.floor(new Date(funnyDate)),
       _id: req.params._id
     };
 
