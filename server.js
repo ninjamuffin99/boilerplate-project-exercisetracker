@@ -137,7 +137,7 @@ app.post('/api/users/:_id/exercises', async function(req, res)
     {
       var dateNow = new Date(Date.now());
 
-      dateNow.setDate(dateNow.getDate() - 1);
+      dateNow.setDate(dateNow.getDate());
 
       funnyDate = dateNow.toDateString();
     }
