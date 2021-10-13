@@ -74,6 +74,8 @@ app.post("/api/users", function(req, res)
 app.get('/api/users/:_id/logs', async function (req, res)
 {
 
+  Exercise.deleteMany({});
+
   await User.findOne({_id: req.params._id}, async function (err, user)
   {
     if (err) return console.log(err);
