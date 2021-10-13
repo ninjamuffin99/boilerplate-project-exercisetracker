@@ -88,23 +88,21 @@ app.get('/api/users/:_id/logs', async function (req, res)
     
     
 
-    // var dateMin = ;
+    var dateMin = req.params.from;
 
-    // funnyExercise = funnyExercise.find({date: {$gte: dateMin}});
+    if (dateMin)
+      funnyExercise.find({timestampDate: {$gte: Math.floor(new Date(dateMin))}});
 
     funnyExercise.exec(function (err, exList)
     {
-      var funnyArray = exList;
       
       var logJson = 
       {
           username: user.username,
           _id: req.params._id,
           count: exList.length,
-          log: funnyArray
+          log: exList
       }; // create log object
-
-      logJson.log.forEach((el, ind) => {console.log(logJson.log[ind])});
 
 
       res.json(logJson);
