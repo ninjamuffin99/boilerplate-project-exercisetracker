@@ -111,6 +111,11 @@ app.get('/api/users/:_id/logs', async function (req, res)
     funnyExercise.exec(function (err, exList)
     {
       
+      exList.forEach((el, ind) => 
+      {
+        exList[ind].date = "swag";
+      });
+
       var logJson = 
       {
           username: user.username,
