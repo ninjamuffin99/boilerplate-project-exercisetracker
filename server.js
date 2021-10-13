@@ -104,7 +104,7 @@ app.get('/api/users/:_id/logs', async function (req, res)
           log: funnyArray
       }; // create log object
 
-      logJson.log.forEach((el, ind) => {logJson.log[ind].date = "sad lol!"});
+      logJson.log.forEach((el, ind) => {console.log(this[ind].date)}, logJson.log);
 
 
       res.send(logJson);
